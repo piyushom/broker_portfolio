@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1.
+        assets
+    
+    ul
+        each asset, i in assetList
+            li
+                a(href="mailto:#{asset.assetId}")= asset.assetId

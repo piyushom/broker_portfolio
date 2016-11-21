@@ -1,0 +1,121 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Brokering Portfolio"
+	},
+	"host": "localhost:3000",
+	"basepath": "/",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+	"/users/assetList1": {
+		"get": {
+			"description": "Returns List of Assest holding by customers",
+			"operationId": "GetListOfAssets",
+			"produces": [
+				"application/json"
+			],
+			"parameters": [
+				{
+					"name": "_id",
+					"in": "query",
+					"description": "ID of asset to fetch",
+					"required": true,
+					"type": "string"
+				}
+			],
+			"responses": {
+				"200": {
+					"description": "Assest responses"
+				},
+				"default": {
+					"description": "unexpected error"
+				}
+			}
+		}
+	},
+
+	"/users/assetList": {
+		"get": {
+			"description": "Returns List of Assest holding by customers",
+			"operationId": "GetAllAssets",
+			"produces": [
+				"application/json"
+			],
+			
+			"responses": {
+				"200": {
+					"description": "Assest responses"
+				},
+				"default": {
+					"description": "unexpected error"
+				}
+			}
+		}
+	},
+
+	"/users/personalDetailsList": {
+		"get": {
+			"description": "Returns List of customers",
+			"operationId": "GetListOfCustomers",
+			"produces": [
+				"application/json"
+			],
+			"responses": {
+				"200": {
+					"description": "customers responses"
+				},
+				"default": {
+					"description": "unexpected error"
+				}
+			}
+		}
+	},
+
+	"/hello_world/hello/{id}": {
+			"get": {
+				"description": "Returns 'Hello' to the caller",
+				"operationId": "hello",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "The name of the person to whom to say hello",
+						"required": false,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "#/definitions/HelloWorldResponse"
+						}
+					},
+					"default": {
+						"description": "Error",
+						"schema": {
+							"$ref": "#/definitions/ErrorResponse"
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
